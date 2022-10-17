@@ -1,9 +1,6 @@
 
-import { utilServ } from './../services/util.service';
+import { utilServ } from './../src/services/util.service';
 import mongoose from 'mongoose';
-
-process.env.PORT
-
 
 class ConectDB { 
     initConect(host:string, db:string){
