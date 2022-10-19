@@ -8,12 +8,12 @@ class UserControll{
     async getUser(id:String){
         return await userModel.findById(id);
     }
-    async addUser(nombre:String,apePat:String,apeMat:String,pasword:String,telefono:String,email:String){
-        let user = await new userModel({nombre,apePat,apeMat,pasword,telefono,email});
-        await user.save();
-        return user;
+    async addUser(user:any){
+        let aux = await new userModel(user);
+        await aux.save();
+        return aux;
     }
-    async dellUser(id:String):Promise<Boolean>{
+    async dellUser(id:String):Promise<Boolean>{ 
         if(await userModel.findByIdAndDelete(id)!=null){
             return true;
         }

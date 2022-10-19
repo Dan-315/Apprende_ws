@@ -32,6 +32,9 @@ async function start(){
   apprendeDB.initConect(process.env.DBHOST||""
     ,   process.env.DBNAME||""
     );
+
+    console.log(utilServ.getHora());
+    
 }
 
 start();

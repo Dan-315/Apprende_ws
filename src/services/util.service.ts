@@ -32,6 +32,14 @@ class UtilService{
     
         
     }
+    getFecha(fromat:boolean,date?:string){
+        let aux=date?moment.utc(new Date(date)):moment.utc()
+        return fromat? 
+            aux.format("DD/MMMM/YYYY - HH:mm:ss")  :  aux.toString()
+    }
+    getHora(time?:string){
+        return time?moment.utc(new Date("Jan 01 2000 "+time)).format("HH:mm:ss"):moment.utc().format("HH:mm:ss")
+    }
 
 }
 
