@@ -1,6 +1,7 @@
 import { accesCont } from "../controllers/access.controller";
 import { gradeCont } from "../controllers/grade.controller";
 import { userCont } from "../controllers/user.controller";
+import { suscripCont } from "../controllers/suscrip.controller";
 
 export const resolvers = {
     Query:{
@@ -25,7 +26,15 @@ export const resolvers = {
         },
         getGrade: async (_:any,{id}:any)=>{
             return await gradeCont.getGrade(id);
+        },
+
+        getAllSuscrip: async ()=>{
+            return await suscripCont.getAllSuscrip();
+        },
+        getSuscrip: async(_:any,{id}:any)=>{
+            return await suscripCont.getSuscrip(id);
         }
+
     },
     Mutation:{ 
         addUser: async (_:any, {user}:any,) =>{
@@ -56,6 +65,16 @@ export const resolvers = {
         },
         dellGrade: async (_:any,{id}:any)=>{
             return await gradeCont.dellGrade(id)
-        }
+        },
+
+        addSuscrip: async(_:any, {suscrip}:any,) =>{
+            return await suscripCont.addSuscrip(suscrip);
+        },
+        updatSuscrip: async (_:any, {id,suscrip}:any,) =>{
+            return await suscripCont.updateSuscrip(id,suscrip);
+        },
+        dellSuscrip: async (_:any,{id}:any)=>{
+            return await suscripCont.dellSuscrip(id);
+        },
     }
 }

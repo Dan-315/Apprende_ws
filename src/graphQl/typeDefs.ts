@@ -51,6 +51,22 @@ export const typeDefs = gql`
         cupo:Float
     }
 
+    type Suscrip{
+        id:ID
+        id:String,
+        idCurso:String,
+        idUsuario:String,
+        fechaCompra:String,
+        MontoTotal:Number
+    }
+    input SuscripInput{
+        id:String,
+        idCurso:String,
+        idUsuario:String,
+        fechaCompra:String,
+        MontoTotal:Number
+    }
+
     type Query{
         default:String
 
@@ -62,6 +78,9 @@ export const typeDefs = gql`
         
         getAllGrades:[Grade]
         getGrade(id:ID!):Grade
+
+        getAllSuscrip:[Suscrip]
+        getSuscrip(id:ID!):Suscrip
     }
 
     type Mutation{
@@ -77,7 +96,13 @@ export const typeDefs = gql`
         addGrade(grade:GradeInput!):Grade
         updatGrade(id:ID!,grade:GradeInput):Grade
         dellGrade(id:ID!):Boolean
+
+        addSuscrip(suscrip:SuscripInput!):Suscrip
+        updateSuscrip(1d:ID!,suscrip:SuscripInput):Suscrip
+        dellSuscrip(id:ID!):Boolean
+
     }
+
 `
 
  
