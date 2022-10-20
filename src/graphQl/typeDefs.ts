@@ -52,19 +52,17 @@ export const typeDefs = gql`
     }
 
     type Suscrip{
-        id:ID
-        id:String,
+        id:ID,
         idCurso:String,
         idUsuario:String,
         fechaCompra:String,
-        MontoTotal:Number
+        MontoTotal:Float
     }
     input SuscripInput{
-        id:String,
         idCurso:String,
         idUsuario:String,
         fechaCompra:String,
-        MontoTotal:Number
+        MontoTotal:Float
     }
 
     type Query{
@@ -98,11 +96,11 @@ export const typeDefs = gql`
         dellGrade(id:ID!):Boolean
 
         addSuscrip(suscrip:SuscripInput!):Suscrip
-        updateSuscrip(1d:ID!,suscrip:SuscripInput):Suscrip
+        updateSuscrip(id:ID!,suscrip:SuscripInput):Suscrip
         dellSuscrip(id:ID!):Boolean
 
     }
 
-`
+` 
 
  

@@ -70,7 +70,7 @@ export const resolvers = {
         addSuscrip: async(_:any, {suscrip}:any,) =>{
             return await suscripCont.addSuscrip(suscrip);
         },
-        updatSuscrip: async (_:any, {id,suscrip}:any,) =>{
+        updateSuscrip: async (_:any, {id,suscrip}:any,) =>{
             return await suscripCont.updateSuscrip(id,suscrip);
         },
         dellSuscrip: async (_:any,{id}:any)=>{
