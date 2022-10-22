@@ -3,12 +3,8 @@ import { utilServ } from '../services/util.service';
 
 class AccesControll{
 
-    async getAllAcces(){
-        let res=await accesModel.find();
-         return res
-    }
-    async getAcces(id:String){
-        return await accesModel.findById(id);
+    async getAcces(acces:any){
+        return await accesModel.find(acces);
     }
     async addAcces(acces:any){
         acces.fechaAcceso=utilServ.getFecha(false)

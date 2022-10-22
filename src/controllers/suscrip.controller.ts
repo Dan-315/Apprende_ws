@@ -1,14 +1,13 @@
 import { suscripModel } from '../models/suscrip.model';
+import { utilServ } from '../services/util.service';
 
 class SuscripControll{
 
-    async getAllSuscrip(){
-        return await suscripModel.find();
-    }
-    async getSuscrip(id:String){
-        return await suscripModel.findById(id);
+    async getSuscrip(suscrip:any){
+        return await suscripModel.find(suscrip);
     }
     async addSuscrip(suscrip:any){
+        suscrip.fechaCompra=utilServ.getFecha(false)
         let aux = await new suscripModel(suscrip);
         await aux.save();
         return aux;

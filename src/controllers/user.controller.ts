@@ -2,11 +2,8 @@ import { userModel } from '../models/users.model';
 
 class UserControll{
 
-    async getUsers(){
-        return await userModel.find();
-    }
-    async getUser(id:String){
-        return await userModel.findById(id);
+    async getUser(user:any){
+        return await userModel.find(user);
     }
     async addUser(user:any){
         let aux = await new userModel(user);

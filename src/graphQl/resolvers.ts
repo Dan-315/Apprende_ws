@@ -7,32 +7,20 @@ export const resolvers = {
     Query:{
         default: ()=> 'GraphQL default execution',
 
-        getAllUsers: async ()=>{
-            return await userCont.getUsers();
-        },
-        getUser: async (_:any,{id}:any)=>{
-            return await userCont.getUser(id)
+        getUser: async (_:any,{user}:any)=>{
+            return await userCont.getUser(user)
         },
 
-        getAllAcces: async ()=>{
-            return await accesCont.getAllAcces();
-        },
-        getAcces: async (_:any,{id}:any)=>{
-            return await accesCont.getAcces(id);
+        getAccess: async (_:any,{acces}:any)=>{
+            return await accesCont.getAcces(acces);
         },
 
-        getAllGrades: async ()=>{
-            return await gradeCont.getAllGrades();
-        },
-        getGrade: async (_:any,{id}:any)=>{
-            return await gradeCont.getGrade(id);
+        getGrade: async (_:any,{grade}:any)=>{
+            return await gradeCont.getGrade(grade);
         },
 
-        getAllSuscrip: async ()=>{
-            return await suscripCont.getAllSuscrip();
-        },
-        getSuscrip: async(_:any,{id}:any)=>{
-            return await suscripCont.getSuscrip(id);
+        getSuscrip: async(_:any,{suscrip}:any)=>{
+            return await suscripCont.getSuscrip(suscrip);
         }
 
     },
@@ -42,7 +30,7 @@ export const resolvers = {
         },
         updatUser: async (_:any, {id,user}:any,) =>{
             return await userCont.updatUser(id,user);
-        },
+        }, 
         dellUser: async (_:any,{id}:any)=>{
             return await userCont.dellUser(id)
         },

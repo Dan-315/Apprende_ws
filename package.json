@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/chalk": "^2.2.0",
+    "@types/moment-timezone": "^0.5.30",
     "apollo-server-express": "^3.10.3",
     "body-parser": "^1.20.1",
     "chalk": "4.1.2",
@@ -24,6 +25,7 @@
     "graphql-scalars": "^1.19.0",
     "graphql-tools": "^8.3.6",
     "moment": "^2.29.4",
+    "moment-timezone": "^0.5.38",
     "mongoose": "^6.6.5",
     "morgan": "^1.10.0"
   },

@@ -3,12 +3,8 @@ import { utilServ } from '../services/util.service';
 
 class GradeControll{
 
-    async getAllGrades(){
-        let res=await gradeModel.find();
-         return res
-    }
-    async getGrade(id:String){
-        return await gradeModel.findById(id);
+    async getGrade(grade:any){
+        return await gradeModel.find(grade);
     }
     async addGrade(grade:any){
         let horario=[]

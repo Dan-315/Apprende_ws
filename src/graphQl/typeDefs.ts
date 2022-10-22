@@ -13,6 +13,7 @@ export const typeDefs = gql`
         email:String
     }
     input UserInput{
+        id:ID
         nombre:String,
         apePat:String,
         apeMat:String,
@@ -68,17 +69,13 @@ export const typeDefs = gql`
     type Query{
         default:String
 
-        getAllUsers:[User]
-        getUser(id:ID!):User
+        getUser(user:UserInput):[User]
 
-        getAllAcces:[Acces]
-        getAcces(id:ID!):Acces
+        getAccess(acces:AccesInput):[Acces]
         
-        getAllGrades:[Grade]
-        getGrade(id:ID!):Grade
+        getGrade(grade:GradeInput):[Grade]
 
-        getAllSuscrip:[Suscrip]
-        getSuscrip(id:ID!):Suscrip
+        getSuscrip(suscrip:SuscripInput):[Suscrip]
     }
 
     type Mutation{
