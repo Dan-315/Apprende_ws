@@ -4,25 +4,25 @@ import { utilServ } from '../services/util.service';
 class AccesControll{
 
     async getAcces(acces:any){
-        console.log("Intento---------->  getAcces");
+        utilServ.log("Access Service","Intento---------->  getAcces");
         return await accesModel.find(acces);
     }
     async addAcces(acces:any){
-        console.log("Intento---------->  addAcces");
+        utilServ.log("Access Service","Intento---------->  addAcces");
         acces.fechaAcceso=utilServ.getFecha(false)
         let aux = await new accesModel(acces);
         await aux.save();
         return aux;
     }
     async dellAcces(id:String):Promise<Boolean>{ 
-        console.log("Intento---------->  dellAcces");
+        utilServ.log("Access Service","Intento---------->  dellAcces");
         if(await accesModel.findByIdAndDelete(id)!=null){
             return true;
         }
         return false;
     }
     async updatAcces(id:String,acces:any){
-        console.log("Intento---------->  updatAcces");
+        utilServ.log("Access Service","Intento---------->  updatAcces");
         return accesModel.findByIdAndUpdate(id,{$set:acces}, {new: true})
     }
 

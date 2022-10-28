@@ -1,4 +1,3 @@
-// import * as moment from 'moment';
 import moment from 'moment-timezone'
 import chalk from 'chalk';
 
@@ -23,14 +22,14 @@ class UtilService{
             premess=`--WARNING:`
             typ=warn
         }else {
-            premess=`--MESSAGE:`
+            premess=``
             typ=normal
         } 
         
-        console.log(typ("////////////////////////////////////////////////////////////////////////////////////////"));
+        if(type)console.log(typ("////////////////////////////////////////////////////////////////////////////////////////"));
         console.log(premess+`\n${this.getFecha(true)}`);
         console.log(`[${origen}]-->     ${message}`);
-        console.log(typ("////////////////////////////////////////////////////////////////////////////////////////"));
+        if(type)console.log(typ("////////////////////////////////////////////////////////////////////////////////////////"));
     
         
     }
