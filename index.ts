@@ -32,13 +32,13 @@ async function start() {
   try {
     app.listen(port, () => {
       utilServ.log(
-        `http://localhost:${port}`, `Servidor iniciado. GrphQL playground en:
+        `${process.env.HOST}:${port}`, `Servidor iniciado. GrphQL playground en:
 
-                    http://localhost:${port}/graphql`, "info");
+        ${process.env.HOST}:${port}/graphql`, "info");
     })
   } catch (error) {
     let e:Error=error as Error;
-    utilServ.log(`http://localhost:${port}`, e.name+": "+e.message, "error");
+    utilServ.log(`${process.env.HOST}:${port}`, e.name+": "+e.message, "error");
   }
 
   apprendeDB.initConect(host, db).then(() => {

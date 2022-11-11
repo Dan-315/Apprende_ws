@@ -36,14 +36,14 @@ function start() {
         app.get('*', (req, res) => res.status(404).send("Ruta no encontrada"));
         try {
             app.listen(port, () => {
-                util_service_1.utilServ.log(`http://localhost:${port}`, `Servidor iniciado. GrphQL playground en:
+                util_service_1.utilServ.log(`${process.env.HOST}:${port}`, `Servidor iniciado. GrphQL playground en:
 
-                    http://localhost:${port}/graphql`, "info");
+        ${process.env.HOST}:${port}/graphql`, "info");
             });
         }
         catch (error) {
             let e = error;
-            util_service_1.utilServ.log(`http://localhost:${port}`, e.name + ": " + e.message, "error");
+            util_service_1.utilServ.log(`${process.env.HOST}:${port}`, e.name + ": " + e.message, "error");
         }
         database_1.apprendeDB.initConect(host, db).then(() => {
             util_service_1.utilServ.log(host + db, "Conectado satisfactoriamente", "info");
