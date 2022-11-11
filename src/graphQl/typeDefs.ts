@@ -42,6 +42,7 @@ export const typeDefs = gql`
         cupo:Float
     }
     input GradeInput{
+        id:ID,
         idInstructor:String,
         nombre:String,
         horario:[String],
@@ -56,14 +57,12 @@ export const typeDefs = gql`
         id:ID,
         idCurso:String,
         idUsuario:String,
-        fechaCompra:String,
-        MontoTotal:Float
+        fechaSuscrip:String,
     }
     input SuscripInput{
         idCurso:String,
         idUsuario:String,
-        fechaCompra:String,
-        MontoTotal:Float
+        fechaSuscrip:String,
     }
 
     type Query{
@@ -76,8 +75,15 @@ export const typeDefs = gql`
         getGrade(grade:GradeInput):[Grade]
 
         getSuscrip(suscrip:SuscripInput):[Suscrip]
-    }
 
+        
+        getGradeWhitOut(grade:GradeInput):[Grade]
+
+        getGradeSuscripted(user:UserInput,sucripted:Boolean):[Grade]
+
+        CountSuscripPerGrade(grade:GradeInput):Float
+    } 
+ 
     type Mutation{
         addUser(user:UserInput!):User,
         updatUser(id:ID!,user:UserInput):User

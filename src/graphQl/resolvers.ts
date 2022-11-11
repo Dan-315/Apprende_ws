@@ -21,7 +21,37 @@ export const resolvers = {
 
         getSuscrip: async(_:any,{suscrip}:any)=>{
             return await suscripCont.getSuscrip(suscrip);
-        }
+        },
+
+        getGradeWhitOut: async (_:any,{grade}:any)=>{
+            return await gradeCont.getGradeWhitOut(grade);
+        }, 
+
+        getGradeSuscripted: async (_:any,prams:any)=>{
+            console.log(prams);
+            
+            let {user,sucripted}=prams;
+
+            console.log(user,sucripted);
+            
+
+            let suscrips=await suscripCont.getSuscrip({idUsuario:user.id});
+            console.log(suscrips);
+            let ids=[]
+            for(let suscrip of suscrips){
+                if(suscrip.idCurso)
+                    ids.push(suscrip.idCurso);
+            }
+            console.log(ids);
+            
+            return await gradeCont.getGradeSuscripted(ids,user.id,sucripted);
+        },
+
+        CountSuscripPerGrade: async(_:any,{grade}:any)=>{
+            let suscrips=await suscripCont.getSuscrip({idCurso:grade.id});
+            return suscrips.length;
+        },
+        
 
     },
     Mutation:{ 
